@@ -1,0 +1,1909 @@
+<!doctype html>
+<html lang="en" data-bubblesppbfhhgcdehhbjigifndnfmcihegokbbprevent-events-conflict-installed="true" class="wf-opensans-n3-active wf-opensans-n4-active wf-opensans-n6-active wf-opensans-n7-active wf-flaticon-n4-inactive wf-fontawesome5solid-n4-active wf-fontawesome5regular-n4-active wf-fontawesome5brands-n4-active wf-active js-focus-visible" data-js-focus-visible="">
+<head>
+    <title>ClickUp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script type="text/javascript">
+        (function a() {
+            const e = XMLHttpRequest.prototype,
+                t = e.send;
+            e.send = function () {
+                this.addEventListener("load", (function e() {
+                    const t = new CustomEvent("interceptRequest", {
+                        detail: {
+                            type: "dec"
+                        },
+                        bubbles: !0,
+                        cancelable: !0
+                    });
+                    document.dispatchEvent(t), this.removeEventListener("load", e)
+                }));
+                const e = new CustomEvent("interceptRequest", {
+                    detail: {
+                        type: "inc"
+                    },
+                    bubbles: !0,
+                    cancelable: !0
+                });
+                return document.dispatchEvent(e), t.apply(this, arguments)
+            }
+        })();
+    </script>
+    <style type="text/css">
+        .swal-icon--error {
+            border-color: #f27474;
+            -webkit-animation: animateErrorIcon .5s;
+            animation: animateErrorIcon .5s
+        }
+
+        .swal-icon--error__x-mark {
+            position: relative;
+            display: block;
+            -webkit-animation: animateXMark .5s;
+            animation: animateXMark .5s
+        }
+
+        .swal-icon--error__line {
+            position: absolute;
+            height: 5px;
+            width: 47px;
+            background-color: #f27474;
+            display: block;
+            top: 37px;
+            border-radius: 2px
+        }
+
+        .swal-icon--error__line--left {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            left: 17px
+        }
+
+        .swal-icon--error__line--right {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            right: 16px
+        }
+
+        @-webkit-keyframes animateErrorIcon {
+            0% {
+                -webkit-transform: rotateX(100deg);
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+            to {
+                -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+                opacity: 1
+            }
+        }
+
+        @keyframes animateErrorIcon {
+            0% {
+                -webkit-transform: rotateX(100deg);
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+            to {
+                -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes animateXMark {
+            0% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+            50% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+            80% {
+                -webkit-transform: scale(1.15);
+                transform: scale(1.15);
+                margin-top: -6px
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                margin-top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animateXMark {
+            0% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+            50% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+            80% {
+                -webkit-transform: scale(1.15);
+                transform: scale(1.15);
+                margin-top: -6px
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                margin-top: 0;
+                opacity: 1
+            }
+        }
+
+        .swal-icon--warning {
+            border-color: #f8bb86;
+            -webkit-animation: pulseWarning .75s infinite alternate;
+            animation: pulseWarning .75s infinite alternate
+        }
+
+        .swal-icon--warning__body {
+            width: 5px;
+            height: 47px;
+            top: 10px;
+            border-radius: 2px;
+            margin-left: -2px
+        }
+
+        .swal-icon--warning__body,
+        .swal-icon--warning__dot {
+            position: absolute;
+            left: 50%;
+            background-color: #f8bb86
+        }
+
+        .swal-icon--warning__dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: -4px;
+            bottom: -11px
+        }
+
+        @-webkit-keyframes pulseWarning {
+            0% {
+                border-color: #f8d486
+            }
+            to {
+                border-color: #f8bb86
+            }
+        }
+
+        @keyframes pulseWarning {
+            0% {
+                border-color: #f8d486
+            }
+            to {
+                border-color: #f8bb86
+            }
+        }
+
+        .swal-icon--success {
+            border-color: #a5dc86
+        }
+
+        .swal-icon--success:after,
+        .swal-icon--success:before {
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 60px;
+            height: 120px;
+            background: #fff;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg)
+        }
+
+        .swal-icon--success:before {
+            border-radius: 120px 0 0 120px;
+            top: -7px;
+            left: -33px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: 60px 60px;
+            transform-origin: 60px 60px
+        }
+
+        .swal-icon--success:after {
+            border-radius: 0 120px 120px 0;
+            top: -11px;
+            left: 30px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: 0 60px;
+            transform-origin: 0 60px;
+            -webkit-animation: rotatePlaceholder 4.25s ease-in;
+            animation: rotatePlaceholder 4.25s ease-in
+        }
+
+        .swal-icon--success__ring {
+            width: 80px;
+            height: 80px;
+            border: 4px solid hsla(98, 55%, 69%, .2);
+            border-radius: 50%;
+            box-sizing: content-box;
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            z-index: 2
+        }
+
+        .swal-icon--success__hide-corners {
+            width: 5px;
+            height: 90px;
+            background-color: #fff;
+            padding: 1px;
+            position: absolute;
+            left: 28px;
+            top: 8px;
+            z-index: 1;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg)
+        }
+
+        .swal-icon--success__line {
+            height: 5px;
+            background-color: #a5dc86;
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            z-index: 2
+        }
+
+        .swal-icon--success__line--tip {
+            width: 25px;
+            left: 14px;
+            top: 46px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: animateSuccessTip .75s;
+            animation: animateSuccessTip .75s
+        }
+
+        .swal-icon--success__line--long {
+            width: 47px;
+            right: 8px;
+            top: 38px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: animateSuccessLong .75s;
+            animation: animateSuccessLong .75s
+        }
+
+        @-webkit-keyframes rotatePlaceholder {
+            0% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+            5% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+            12% {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+            to {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+        }
+
+        @keyframes rotatePlaceholder {
+            0% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+            5% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+            12% {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+            to {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+        }
+
+        @-webkit-keyframes animateSuccessTip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px
+            }
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px
+            }
+            to {
+                width: 25px;
+                left: 14px;
+                top: 45px
+            }
+        }
+
+        @keyframes animateSuccessTip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px
+            }
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px
+            }
+            to {
+                width: 25px;
+                left: 14px;
+                top: 45px
+            }
+        }
+
+        @-webkit-keyframes animateSuccessLong {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+            84% {
+                width: 55px;
+                right: 0;
+                top: 35px
+            }
+            to {
+                width: 47px;
+                right: 8px;
+                top: 38px
+            }
+        }
+
+        @keyframes animateSuccessLong {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+            84% {
+                width: 55px;
+                right: 0;
+                top: 35px
+            }
+            to {
+                width: 47px;
+                right: 8px;
+                top: 38px
+            }
+        }
+
+        .swal-icon--info {
+            border-color: #c9dae1
+        }
+
+        .swal-icon--info:before {
+            width: 5px;
+            height: 29px;
+            bottom: 17px;
+            border-radius: 2px;
+            margin-left: -2px
+        }
+
+        .swal-icon--info:after,
+        .swal-icon--info:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            background-color: #c9dae1
+        }
+
+        .swal-icon--info:after {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: -3px;
+            top: 19px
+        }
+
+        .swal-icon {
+            width: 80px;
+            height: 80px;
+            border-width: 4px;
+            border-style: solid;
+            border-radius: 50%;
+            padding: 0;
+            position: relative;
+            box-sizing: content-box;
+            margin: 20px auto
+        }
+
+        .swal-icon:first-child {
+            margin-top: 32px
+        }
+
+        .swal-icon--custom {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            border: none;
+            border-radius: 0
+        }
+
+        .swal-icon img {
+            max-width: 100%;
+            max-height: 100%
+        }
+
+        .swal-title {
+            color: rgba(0, 0, 0, .65);
+            font-weight: 600;
+            text-transform: none;
+            position: relative;
+            display: block;
+            padding: 13px 16px;
+            font-size: 27px;
+            line-height: normal;
+            text-align: center;
+            margin-bottom: 0
+        }
+
+        .swal-title:first-child {
+            margin-top: 26px
+        }
+
+        .swal-title:not(:first-child) {
+            padding-bottom: 0
+        }
+
+        .swal-title:not(:last-child) {
+            margin-bottom: 13px
+        }
+
+        .swal-text {
+            font-size: 16px;
+            position: relative;
+            float: none;
+            line-height: normal;
+            vertical-align: top;
+            text-align: left;
+            display: inline-block;
+            margin: 0;
+            padding: 0 10px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, .64);
+            max-width: calc(100% - 20px);
+            overflow-wrap: break-word;
+            box-sizing: border-box
+        }
+
+        .swal-text:first-child {
+            margin-top: 45px
+        }
+
+        .swal-text:last-child {
+            margin-bottom: 45px
+        }
+
+        .swal-footer {
+            text-align: right;
+            padding-top: 13px;
+            margin-top: 13px;
+            padding: 13px 16px;
+            border-radius: inherit;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0
+        }
+
+        .swal-button-container {
+            margin: 5px;
+            display: inline-block;
+            position: relative
+        }
+
+        .swal-button {
+            background-color: #7cd1f9;
+            color: #fff;
+            border: none;
+            box-shadow: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 24px;
+            margin: 0;
+            cursor: pointer
+        }
+
+        /* .swal-button[not:disabled]:hover {
+            background-color: #78cbf2
+        } */
+
+        .swal-button:active {
+            background-color: #70bce0
+        }
+
+        .swal-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(43, 114, 165, .29)
+        }
+
+        .swal-button[disabled] {
+            opacity: .5;
+            cursor: default
+        }
+
+        .swal-button::-moz-focus-inner {
+            border: 0
+        }
+
+        .swal-button--cancel {
+            color: #555;
+            background-color: #efefef
+        }
+
+        /* .swal-button--cancel[not:disabled]:hover {
+            background-color: #e8e8e8
+        } */
+
+        .swal-button--cancel:active {
+            background-color: #d7d7d7
+        }
+
+        .swal-button--cancel:focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(116, 136, 150, .29)
+        }
+
+        .swal-button--danger {
+            background-color: #e64942
+        }
+
+        /* .swal-button--danger[not:disabled]:hover {
+            background-color: #df4740
+        } */
+
+        .swal-button--danger:active {
+            background-color: #cf423b
+        }
+
+        .swal-button--danger:focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(165, 43, 43, .29)
+        }
+
+        .swal-content {
+            padding: 0 20px;
+            margin-top: 20px;
+            font-size: medium
+        }
+
+        .swal-content:last-child {
+            margin-bottom: 20px
+        }
+
+        .swal-content__input,
+        .swal-content__textarea {
+            -webkit-appearance: none;
+            background-color: #fff;
+            border: none;
+            font-size: 14px;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .14);
+            padding: 10px 13px;
+            border-radius: 2px;
+            transition: border-color .2s
+        }
+
+        .swal-content__input:focus,
+        .swal-content__textarea:focus {
+            outline: none;
+            border-color: #6db8ff
+        }
+
+        .swal-content__textarea {
+            resize: vertical
+        }
+
+        .swal-button--loading {
+            color: transparent
+        }
+
+        .swal-button--loading~.swal-button__loader {
+            opacity: 1
+        }
+
+        .swal-button__loader {
+            position: absolute;
+            height: auto;
+            width: 43px;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+            pointer-events: none;
+            opacity: 0
+        }
+
+        .swal-button__loader div {
+            display: inline-block;
+            float: none;
+            vertical-align: baseline;
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border: none;
+            margin: 2px;
+            opacity: .4;
+            border-radius: 7px;
+            background-color: hsla(0, 0%, 100%, .9);
+            transition: background .2s;
+            -webkit-animation: swal-loading-anim 1s infinite;
+            animation: swal-loading-anim 1s infinite
+        }
+
+        .swal-button__loader div:nth-child(3n+2) {
+            -webkit-animation-delay: .15s;
+            animation-delay: .15s
+        }
+
+        .swal-button__loader div:nth-child(3n+3) {
+            -webkit-animation-delay: .3s;
+            animation-delay: .3s
+        }
+
+        @-webkit-keyframes swal-loading-anim {
+            0% {
+                opacity: .4
+            }
+            20% {
+                opacity: .4
+            }
+            50% {
+                opacity: 1
+            }
+            to {
+                opacity: .4
+            }
+        }
+
+        @keyframes swal-loading-anim {
+            0% {
+                opacity: .4
+            }
+            20% {
+                opacity: .4
+            }
+            50% {
+                opacity: 1
+            }
+            to {
+                opacity: .4
+            }
+        }
+
+        .swal-overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, .4);
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .swal-overlay:before {
+            content: " ";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%
+        }
+
+        .swal-overlay--show-modal {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .swal-overlay--show-modal .swal-modal {
+            opacity: 1;
+            pointer-events: auto;
+            box-sizing: border-box;
+            -webkit-animation: showSweetAlert .3s;
+            animation: showSweetAlert .3s;
+            will-change: transform
+        }
+
+        .swal-modal {
+            width: 478px;
+            opacity: 0;
+            pointer-events: none;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            position: static;
+            margin: 20px auto;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            z-index: 10001;
+            transition: opacity .2s, -webkit-transform .3s;
+            transition: transform .3s, opacity .2s;
+            transition: transform .3s, opacity .2s, -webkit-transform .3s
+        }
+
+        @media (max-width:500px) {
+            .swal-modal {
+                width: calc(100% - 20px)
+            }
+        }
+
+        @-webkit-keyframes showSweetAlert {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            1% {
+                -webkit-transform: scale(.5);
+                transform: scale(.5)
+            }
+            45% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+            80% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes showSweetAlert {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            1% {
+                -webkit-transform: scale(.5);
+                transform: scale(.5)
+            }
+            45% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+            80% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <title>Dashboard</title> -->
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" href="https://sensorcore.pavlok.com/admin/assets/img/icon.ico" type="image/x-icon">
+    <!-- Fonts and icons -->
+    <script type="text/javascript" src="/javascripts/webfont.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bar-chart.js"></script>
+    <link href="/stylesheets/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/css" media="all">
+    <link rel="stylesheet" href="/stylesheets/fonts.css" media="all">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/azzara.min.css">
+    <link rel="stylesheet" href="/stylesheets/circle.css">
+    <link rel="stylesheet" href="/stylesheets/graph.css">
+    <link href="/stylesheets/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/custom.css">
+
+    <style>
+        @keyframes spinner-border {
+        to { transform: rotate(360deg); }
+        }
+        .spinner-border {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: text-bottom;
+            border: .25em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner-border .75s linear infinite;
+            animation: spinner-border .75s linear infinite;
+        }
+        #out{
+            width: 100%;
+        }
+        #out2{
+            width: 100%;
+        }
+        .d-n {
+            display: none;
+        }
+        input{
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+    <style type="text/css">/* Chart.js */
+        @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+    </style>
+    <link id="noteanywherecss" media="screen" type="text/css" rel="stylesheet" href="data:text/css,.note-anywhere%20.closebutton%7Bbackground-image%3A%20url%28chrome-extension%3A//bohahkiiknkelflnjjlipnaeapefmjbh/asset/deleteButton.png%29%3B%7D%0A">
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            z-index: 10000;
+        }
+
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+
+    <style type="text/css">
+        @font-face {
+            font-weight: 400;
+            font-style:  normal;
+            font-family: 'Circular-Loom';
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+        }
+        @font-face {
+            font-weight: 500;
+            font-style:  normal;
+            font-family: 'Circular-Loom';
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+        }
+        @font-face {
+            font-weight: 700;
+            font-style:  normal;
+            font-family: 'Circular-Loom';
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+        }
+        @font-face {
+            font-weight: 900;
+            font-style:  normal;
+            font-family: 'Circular-Loom';
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+        }
+    </style>
+    <style id="motion-extension-style">
+        @media print {
+            .no-print,
+            .no-print * {
+                display: none!important
+            }
+        }
+        
+        #motion-intervention-iframe {
+            width: 100%!important;
+            height: 100%!important;
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-items: center;
+            z-index: 2147483646
+        }
+        
+        .motion-no-overflow {
+            overflow: hidden!important
+        }
+        
+        .motion-iframe {
+            z-index: 2147483646;
+            left: inherit;
+            display: flex!important
+        }
+        
+        .motion-extension-div,
+        .motion-iframe {
+            border: none;
+            background-color: transparent
+        }
+        
+        .motion-extension-div {
+            padding: 0;
+            margin: 0;
+            max-width: none!important;
+            min-width: 0!important;
+            width: auto;
+            max-height: none!important;
+            min-height: 0!important;
+            height: auto;
+            box-shadow: none;
+            visibility: visible!important
+        }
+        
+        #motion-sidebar-iframe-container {
+            overflow: visible;
+            position: fixed;
+            z-index: 2147483646
+        }
+        
+        .motion-sidebar-calendar {
+            height: 46px!important;
+            width: 40px!important;
+            top: 170px;
+            right: 0
+        }
+        
+        .motion-sidebar-full-hover {
+            height: 247px!important;
+            width: 40px!important;
+            top: 170px;
+            right: 0
+        }
+        
+        .motion-sidebar-calendar-hover {
+            height: 207px!important;
+            width: 40px!important;
+            top: 170px;
+            right: 0
+        }
+        
+        iframe.motion-sidebar-calendar {
+            height: 47px!important
+        }
+        
+        iframe.motion-sidebar-calendar,
+        iframe.motion-sidebar-calendar-hover {
+            width: 40px!important;
+            min-width: auto!important;
+            box-shadow: 0 1px 5px 0 #696969
+        }
+        
+        iframe.motion-sidebar-calendar-hover {
+            height: 207px!important
+        }
+        
+        iframe.motion-sidebar-calendar-alert-hover {
+            height: 229px!important
+        }
+        
+        iframe.motion-sidebar-calendar-alert-hover,
+        iframe.motion-sidebar-full-hover {
+            width: 40px!important;
+            min-width: auto!important;
+            box-shadow: 0 1px 5px 0 #696969
+        }
+        
+        iframe.motion-sidebar-full-hover {
+            height: 247px!important
+        }
+        
+        iframe.motion-sidebar-full-alert-hover {
+            width: 40px!important;
+            height: 269px!important;
+            min-width: auto!important;
+            box-shadow: 0 1px 5px 0 #696969;
+            top: 170px;
+            right: 0
+        }
+        
+        .motion-sidebar {
+            display: flex;
+            flex-direction: row;
+            align-items: center
+        }
+        
+        .motion-sidebar-dragging {
+            right: 0!important;
+            transform: none!important
+        }
+        
+        #motion-sidebar-iframe {
+            overflow: auto;
+            top: 0;
+            right: 0;
+            z-index: 0;
+            border-radius: .3rem 0 0 .3rem
+        }
+        
+        #motion-account-iframe {
+            width: 100%!important;
+            height: 100%!important;
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-items: center;
+            border: none!important
+        }
+        
+        .motion-no-pointer-events {
+            pointer-events: none!important
+        }
+        
+        .ant-select-dropdown {
+            z-index: 100000!important
+        }
+        
+        #motion-calendar-minimized-iframe {
+            width: 210px!important;
+            height: 60px!important;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 4px
+        }
+        
+        #motion-dropdown-iframe {
+            right: 0!important;
+            width: 180px!important;
+            border-radius: 8px 0 0 8px;
+            background-color: #000
+        }
+        
+        #motion-dropdown-iframe,
+        #motion-widget-tooltip-iframe {
+            overflow: visible;
+            position: fixed;
+            z-index: 2147483646;
+            top: 0;
+            height: 0;
+            min-width: auto!important;
+            min-height: auto!important;
+            box-shadow: 0 1px 5px 0 #696969
+        }
+        
+        #motion-widget-tooltip-iframe {
+            right: 45px!important;
+            width: 200px!important;
+            border-radius: 4px;
+            background-color: #272728
+        }
+        
+        #motion-widget-warning-iframe {
+            overflow: visible;
+            position: fixed;
+            z-index: 2147483646;
+            right: 30px!important;
+            top: 0;
+            width: 17px!important;
+            height: 17px!important;
+            min-width: auto!important;
+            min-height: auto!important;
+            box-shadow: 0 1px 5px 0 #696969;
+            border-radius: 50%
+        }
+        
+        #motion-auth-iframe,
+        #motion-availability-popup-iframe,
+        #motion-browser-icon-modal-iframe,
+        #motion-consolidate-tab-modal-iframe,
+        #motion-edit-schedule-modal-iframe,
+        #motion-email-signatures-iframe,
+        #motion-hide-widget-modal-iframe,
+        #motion-intervention-snooze-modal-iframe,
+        #motion-onboard-iframe,
+        #motion-schedule-tab-modal-iframe,
+        #motion-shortcut-modal-iframe,
+        #motion-upgrade-iframe {
+            width: 100%!important;
+            height: 100%!important;
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-items: center
+        }
+        
+        #motiontab-availability-popup-iframe,
+        #motiontab-edit-schedule-modal-iframe {
+            height: calc(100% - 60px);
+            width: calc(100vw - 100px)
+        }
+        
+        #motiontab-availability-popup-iframe,
+        #motiontab-consolidate-tab-modal-iframe,
+        #motiontab-edit-schedule-modal-iframe {
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed;
+            bottom: 0;
+            left: 100px;
+            align-items: center;
+            justify-items: center
+        }
+        
+        #motiontab-consolidate-tab-modal-iframe {
+            width: calc(100% - 100px);
+            height: 100%
+        }
+        
+        #motion-browser-icon-modal-iframe {
+            z-index: 1000
+        }
+        
+        #motion-command-iframe,
+        #motion-snippet-iframe,
+        #motion-timezone-iframe {
+            width: 100%!important;
+            height: 100%!important;
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-items: center
+        }
+        
+        #motion-email-iframe-container {
+            overflow: visible;
+            position: fixed;
+            z-index: 2147483646;
+            top: calc(100% - 450px);
+            left: calc(100% - 804px)
+        }
+        
+        #motion-email-iframe {
+            resize: both;
+            overflow: auto;
+            top: 0;
+            width: 544px;
+            height: 450px;
+            min-width: 270px!important;
+            min-height: 270px!important;
+            box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .1), 0 16px 2rem rgba(0, 0, 0, .05), 0 0 .5px rgba(0, 0, 0, .1);
+            border-radius: 6px;
+            background-color: #202020
+        }
+        
+        #motion-calendar-iframe-container {
+            bottom: 0;
+            right: 0
+        }
+        
+        #motion-calendar-iframe-container,
+        #motiontab-calendar-iframe-container {
+            overflow: visible;
+            position: fixed;
+            z-index: 2147483646;
+            background-color: #1d1d1d
+        }
+        
+        #motiontab-calendar-iframe-container {
+            top: 60px;
+            left: 100px
+        }
+        
+        .motion-calendar-iframe-container-minimized {
+            width: 210px!important;
+            height: 60px!important;
+            top: calc(100% - 80px)!important;
+            right: 20px!important;
+            overflow: hidden!important;
+            transition: .4s;
+            visibility: hidden!important;
+            opacity: 0!important;
+            z-index: -100!important;
+            pointer-events: none
+        }
+        
+        #motion-calendar-iframe {
+            overflow: auto;
+            top: 0;
+            width: 375px;
+            height: 100vh!important;
+            min-width: 20vw;
+            min-height: 100vh!important;
+            max-width: 100vw!important;
+            box-shadow: 0 0 10px 0 #000;
+            background-color: #1d1d1d
+        }
+        
+        #motiontab-calendar-iframe {
+            overflow: auto;
+            height: calc(100vh - 60px);
+            background-color: #1d1d1d
+        }
+        
+        #motion-generic-notification-iframe {
+            width: 100%!important;
+            height: 100%!important;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            align-items: center;
+            justify-items: center;
+            pointer-events: none!important;
+            z-index: 2147483646
+        }
+        
+        #motion-generic-notification-iframe,
+        #motion-notification-iframe {
+            min-width: auto!important;
+            min-height: auto!important;
+            position: fixed
+        }
+        
+        #motion-notification-iframe {
+            bottom: 50px;
+            left: -400px;
+            transition: left .3s;
+            z-index: 2147483647;
+            overflow: auto;
+            border-radius: 4px;
+            width: 350px;
+            height: 150px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .93)
+        }
+        
+        .motion-notification-transition {
+            left: 25px!important;
+            transition: left .3s
+        }
+        
+        .motion-calendar-reminder {
+            height: 70px!important
+        }
+        
+        .motion-calendar-reminder,
+        .motion-calendar-reminder-note {
+            width: 410px;
+            min-width: auto!important;
+            min-height: auto!important;
+            box-shadow: 0 0 4px rgba(0, 0, 0, .93)
+        }
+        
+        .motion-calendar-reminder-note {
+            height: 180px!important
+        }
+        
+        #motion-calendar-reminder-iframe {
+            border-radius: 4px 0 0 4px;
+            position: fixed;
+            top: 20px;
+            right: -410px;
+            transition: right 1s;
+            z-index: 2147483646
+        }
+        
+        #motion-calendar-reminder-template-iframe-container {
+            overflow: hidden;
+            position: fixed;
+            top: 95px;
+            right: 165px;
+            z-index: 2147483646;
+            width: 150px!important;
+            height: 160px;
+            min-width: auto!important;
+            min-height: auto!important;
+            box-shadow: 0 1px 5px 0 #696969;
+            border-radius: 6px
+        }
+        
+        .motion-calendar-reminder-transition {
+            right: 0!important;
+            transition: right 1s
+        }
+        
+        #motion-calendar-event-iframe {
+            position: fixed;
+            top: -600px;
+            right: -600px;
+            height: 350px;
+            width: 410px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px 0 #000
+        }
+        
+        .motion-gmail-date {
+            border-bottom: 2px solid #2c77e6;
+            cursor: pointer
+        }
+        
+        .motion-sidebar-distracting,
+        .motion-sidebar-general {
+            height: 54px!important;
+            min-height: auto!important;
+            top: 170px;
+            right: 0
+        }
+        
+        iframe.motion-sidebar-general {
+            width: 54px!important;
+            min-width: auto!important;
+            box-shadow: 0 1px 5px 0 #696969
+        }
+        
+        iframe.motion-sidebar-distracting {
+            width: 160px!important;
+            min-width: auto!important;
+            box-shadow: 0 1px 5px 0 #696969
+        }
+    </style>
+    <style type="text/css">
+        .c1-ui-state-hover 
+        {
+            background-color:yellow !important; 
+            padding:5px !important 
+        }
+    </style>
+</head>
+<body class="clickup-chrome-ext_installed vsc-initialized">
+    <div id="pomoFocusBannerPlaceholder" class="ui-draggable ui-draggable-handle" style="display: none;">
+        <table>
+           <tr>
+              <td id="pavlokTaskSpan" class="pavlokInfoBar"></td>
+              <td id="pavlokTimerSpan" class="pavlokInfoBar"></td>
+              <td id="pavlokTogglerSpan"><img src="chrome-extension://hefieeppocndiofffcfpkbfnjcooacib/images/browser_action_16x16.png"></td>
+           </tr>
+        </table>
+    </div>
+
+    <div class="wrapper">
+        <div class="main-header bg-white">
+            <!-- Logo Header -->
+            <div class="logo-header">
+                <a href="https://sensorcore.pavlok.com/admin/index.html" class="logo">
+                   <h3 class="font-weight-bold mt-3">PAVLOK</h3>
+                </a>
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"></i>
+                </span>
+                </button>
+                <button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+                <div class="navbar-minimize">
+                   <button class="btn btn-minimize btn-rounded">
+                   <i class="fa fa-bars"></i>
+                   </button>
+                </div>
+             </div>
+             <!-- End Logo Header -->
+             <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg">
+                <div class="container-fluid">
+                   <div class="collapse" id="search-nav">
+                      <h4 class="page-title mt-2">Dashboard</h4>
+                   </div>
+                   <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                      <li class="nav-item toggle-nav-search hidden-caret">
+                         <a class="nav-link" data-toggle="collapse" href="https://sensorcore.pavlok.com/admin/google-calender.html#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+                         <i class="fa fa-search"></i>
+                         </a>
+                      </li>
+                      <li class="nav-item dropdown hidden-caret">
+                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="https://sensorcore.pavlok.com/admin/google-calender.html#" aria-expanded="false">
+                            <div class="avatar-sm">
+                               <img src="/stylesheets/data" alt="..." class="avatar-img rounded-circle">
+                            </div>
+                         </a>
+                         <ul class="dropdown-menu dropdown-user animated fadeIn">
+                            <li>
+                               <div class="user-box">
+                                  <div class="avatar-lg"><img src="/stylesheets/data" alt="image profile" class="avatar-img rounded"></div>
+                                  <div class="u-text">
+                                     <h4 id="full-name" class="capitalize">maneesh</h4>
+                                     <p class="text-muted" id="usr-email">androidstage@pavlock.com</p>
+                                     <a href="https://sensorcore.pavlok.com/admin/google-calender.html#" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                  </div>
+                               </div>
+                            </li>
+                            <li>
+                               <div class="dropdown-divider"></div>
+                               <a class="dropdown-item" href="https://sensorcore.pavlok.com/admin/google-calender.html#">My Profile</a>
+                               <a class="dropdown-item" href="https://sensorcore.pavlok.com/admin/google-calender.html#">Inbox</a>
+                               <div class="dropdown-divider"></div>
+                               <a class="dropdown-item" href="https://sensorcore.pavlok.com/admin/google-calender.html#">Account Setting</a>
+                               <div class="dropdown-divider"></div>
+                               <a class="dropdown-item" href="https://sensorcore.pavlok.com/api/v1/auth/logout">Logout</a>
+                            </li>
+                         </ul>
+                      </li>
+                   </ul>
+                </div>
+             </nav>
+             <!-- End Navbar -->
+        </div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-background"></div>
+            <div class="scroll-wrapper sidebar-wrapper scrollbar-inner" style="position: relative;">
+               <div class="sidebar-wrapper scrollbar-inner scroll-content" style="height: 660px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+                  <div class="sidebar-content">
+                     <ul class="nav">
+                        <li class="nav-item">
+                           <a href="https://sensorcore.pavlok.com/admin/index.html" class="d-block">
+                              <i class="fas fa-home"></i>
+                              <p>Home</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="https://sensorcore.pavlok.com/admin/integrations.html">
+                              <i class="fas fa-th"></i>
+                              <p>Integrations</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="https://sensorcore.pavlok.com/admin/insights.html">
+                              <i class="fas fa-cloud"></i>
+                              <p>Insights</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="https://sensorcore.pavlok.com/app/index.html">
+                              <i class="fas fa-smile"></i>
+                              <p>Emotion Tracker</p>
+                           </a>
+                        </li>
+                        <li class="nav-item active">
+                           <a href="https://sensorcore.pavlok.com/admin/google-calender.html">
+                              <i class="fas fa-calendar-alt"></i>
+                              <p>Google Calender</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="https://sensorcore.pavlok.com/admin/stimsend.html">
+                              <i class="fas fa-paper-plane"></i>
+                              <p>Stim Send</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="scroll-element scroll-x">
+                  <div class="scroll-element_outer">
+                     <div class="scroll-element_size"></div>
+                     <div class="scroll-element_track"></div>
+                     <div class="scroll-bar ui-draggable ui-draggable-handle" style="width: 100px;"></div>
+                  </div>
+               </div>
+               <div class="scroll-element scroll-y">
+                  <div class="scroll-element_outer">
+                     <div class="scroll-element_size"></div>
+                     <div class="scroll-element_track"></div>
+                     <div class="scroll-bar ui-draggable ui-draggable-handle" style="height: 100px;"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- End Sidebar -->
+         <div class="main-panel">
+            <div class="content mt-0">
+               <div class="row m-4">
+                  <div class="col-md-9">
+                     <!-- Bunner -->
+                     <div class="page-bunner">
+                        <div class="inner-page-bunner">
+                           <br><br>
+                           <h2 class="font-weight-bold mt-4">Google Calender Events</h2>
+                           <div id="list_view_wrapper">
+                              <br>
+                              <div class="spinner-border spin-gcal d-n"></div>
+                              <table class="oura-table gcal-table table table-bordered mt-2">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Date</th>
+                                       <th scope="col">Event</th>
+                                       <th style="text-align: center" scope="col">Schedule</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody class="gcal-table-body">
+                                    <% checklists.forEach(function( eachPerson, index){ %>
+                                        <tr>
+                                            <td><%= eachPerson.date %> - <%= eachPerson.time %> </td>
+                                            <td><%= eachPerson.name %> </td>
+                                            <td style="text-align: center">
+                                                <button id="00t6ht7i4900ea0h48ntvs3fdl_20210610T194500Z^Pavlok Challenge Call" onclick="scheduleModal(this.id)" type="button" class="btn btn-primary" disabled="">
+                                                <i class="far fa-clock"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                 </tbody>
+                              </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+    </div>
+    <!-- End Custom template -->
+      <!-- Expired Session Modal -->
+      <div id="notification-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">�</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <p>Your Session is expired. Please login again.</p>
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+              </div>
+           </div>
+        </div>
+     </div>
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/jquery-ui.1.11.2.min.js"></script>
+    <script src="/javascripts/jquery.canvasjs.min.js"></script>
+    <script src="/javascripts/jquery.3.2.1.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="/javascripts/jquery-ui.min.js"></script>
+    <script src="/javascripts/jquery.ui.touch-punch.min.js"></script>
+    <!-- jQuery Scrollbar -->
+    <script src="/javascripts/jquery.scrollbar.min.js"></script>
+    <!-- Moment JS -->
+    <script src="/javascripts/moment.min.js"></script>
+    <!-- Chart JS -->
+    <script src="/javascripts/chart.min.js"></script>
+    <!-- jQuery Sparkline -->
+    <script src="/javascripts/jquery.sparkline.min.js"></script>
+    <!-- Chart Circle -->
+    <script src="/javascripts/circles.min.js"></script>
+    <!-- Datatables -->
+    <!-- Bootstrap Notify -->
+    <script src="/javascripts/bootstrap-notify.min.js"></script>
+    <!-- Bootstrap Toggle -->
+    <script src="/javascripts/bootstrap-toggle.min.js"></script>
+    <!-- jQuery Vector Maps -->
+    <script src="/javascripts/jquery.vmap.min.js"></script>
+    <script src="/javascripts/jquery.vmap.world.js"></script>
+    <!-- Sweet Alert -->
+    <script src="/javascripts/sweetalert.min.js"></script>
+    <!-- Azzara JS -->
+    <script src="/javascripts/ready.min.js"></script>
+    <script src="/javascripts/select2.min.js"></script>
+    <script src="/javascripts/setting-custom.js"></script>
+    <!-- Date picker -->
+    <script type="text/javascript" src="/javascripts/moment.min(1).js"></script>
+    <script type="text/javascript" src="/javascripts/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/daterangepicker.css">
+
+    <!-- TOAST UI Calender -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tui-calendar.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tui-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tui-time-picker.css">
+    <script src="/javascripts/tui-code-snippet.min.js"></script>
+    <script src="/javascripts/tui-time-picker.min.js"></script>
+    <script src="/javascripts/tui-date-picker.min.js"></script>
+    <script src="/javascripts/tui-calendar.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <div class="jqvmap-label" style="display: none;"></div>
+
+
+    <script type="text/javascript">
+        // CUSTOM JAVASCRIPT FOR SENSORCORE
+        let csvData = null;
+        let graphStart = null;
+        let graphEnd = null;
+        let activeEvent;
+        $(function () {
+        
+           $.get( "/api/v1/user/me", function( data ) {
+                if (data.picture_url)
+                   $(".avatar-img").attr("src", data.picture_url);
+                $("#full-name").text(data.name);
+                $("#usr-email").text(data.email);
+            }).fail(function(data, textStatus, xhr) {
+                   if (data.status){
+                     //  $("#notification-modal").modal("show");
+                   }
+              });
+        
+           getGcalData();
+        });
+        
+        function getGcalData() {
+           $(".spin-gcal").removeClass("d-n");
+           $("table.gcal-table").addClass("d-n");
+           $.ajax({
+              url: `/api/v1/gcal/data`,
+              method: "GET",
+              success: function ({gcalEvents,jobs}) {
+                 let str = ``;
+                 let scheduled_table_string=``;
+                 let timeStr=``;
+                 let checkBoxFlag=``;
+                 let data= gcalEvents;
+        
+                 //String holds the html for the scheduled events table
+                 for(let i = 0;i<jobs.length;i++){
+                    scheduled_table_string= `${scheduled_table_string}
+             <tr>
+             <td>${moment(jobs[i].date).format("YYYY/MM/DD - hh:mm ")}</td>
+             <td>${jobs[i].summary}</td>
+             <td>${jobs[i].alert_type}</td>
+             <td>${jobs[i].intensity}</td>
+             <td>${jobs[i].message}</td>
+             <td>${jobs[i].early||0} Min</td>
+                 </tr>`
+                 }
+        
+                 //String holds the html for the upcoming events table
+                 for(let i = 0;i<data.length;i++){
+        
+                       if(data[i].start.dateTime){
+                          timeStr = moment(data[i].start.dateTime).format("YYYY/MM/DD - hh:mm ");
+                          //checkbox is disabled if the event has already started : Should we just hide events that have already started?
+                          if(moment(new Date()).isBefore(data[i].start.dateTime)) checkBoxFlag=``
+                          else checkBoxFlag=`disabled`;
+                       }
+                       else if(data[i].start.date){
+                          checkBoxFlag=`disabled`;
+                          timeStr = moment(data[i].start.date).format("YYYY/MM/DD");
+                       }
+        
+                       str = `${str}
+             <tr>
+             <td>${timeStr}</td>
+             <td>${data[i].summary}</td>
+             <td style="text-align: center" >
+                 <button id="${data[i].id+'^'+data[i].summary}" onclick="scheduleModal(this.id)" type="button" class="btn btn-primary" ${checkBoxFlag}>
+                     <i class="far fa-clock"></i>
+                 </button>
+             </td>
+                 </tr>`
+                 }
+        
+                 renderCalender(gcalEvents,jobs);
+                 $(".gcal-table-body").html(str);
+                 $(".scheduled-events-table-body").html(scheduled_table_string);
+                 $(".spin-gcal").addClass("d-n");
+                 $(".gcal-table").removeClass("d-n");
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                 console.log("error");
+                 $(".spin-gcal").addClass("d-n");
+                 $(".gcal-table").removeClass("d-n");
+              },
+           });
+        }
+        
+        
+        function renderCalender(gcalEvents,jobs){
+        
+           //Initiate instance of Toast UI calender
+           let $calEl = $('#calendar').tuiCalendar({
+              defaultView: 'month',
+              taskView: true,
+              useDetailPopup: true,
+              isReadOnly: true,
+              month: {startDayOfWeek: 1}, // monday
+              template: {
+                 monthDayname: function(dayname) {
+                    return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+                 }
+              }
+           });
+        
+           let calendarInstance = $calEl.data('tuiCalendar');
+        
+           //Custom event handler triggered when a schedule is clicked
+           calendarInstance.on({
+              'clickSchedule': function(e) {
+                 //Converts title string to html to display the unicode emojis codes as actual emojis
+                 $(".tui-full-calendar-schedule-title").html(e.schedule.title);
+        
+                 //Removes the Emojis from the popup title when its active
+                 //$(".tui-full-calendar-schedule-title").html((e.schedule.title).replace("&#9889;",'').replace("&#128264;️",'').replace("&#128243;",''));
+        
+                 //Title only gets updated after the popup is opened the first time and doesn't go back to original title
+                 // calendarInstance.updateSchedule(e.schedule.id,'1', { title:"new title" });
+              }
+           });
+        
+           //Create a Toast UI Calender Schedule(event) for every upcoming GCal event
+           gcalEvents.forEach(function(event) {
+        
+              //Event is darkened if the event has already started or if it is a full day event?
+              let checkBoxFlag;
+              if(event?.start.dateTime) checkBoxFlag = !moment(new Date()).isBefore(event?.start.dateTime);
+              else if(event?.start.date) checkBoxFlag=true;
+        
+              //Adds respective emoji to the name of the event in the calender if an alert is scheduled for said event
+              let alert_emojis='';
+              let schedule_body=``;
+              let scheduled_job = jobs.filter(x=> x.eventID === event.id);
+              let scheduledAlerts = scheduled_job.map(a => a.alert_type);
+              if(scheduledAlerts.length>0){
+                 schedule_body = schedule_body + "Alert Type : "
+              }
+              if(scheduledAlerts.includes("zap")) {
+                 alert_emojis = alert_emojis + "&#9889;&nbsp"
+                 schedule_body = schedule_body + "&#9889; Zap "
+              }
+              if(scheduledAlerts.includes("beep")){
+                 alert_emojis = alert_emojis + "&#128264;️&nbsp"
+                 schedule_body = schedule_body + "&#128264; Beep "
+              }
+              if(scheduledAlerts.includes("vibrate")){
+                 alert_emojis = alert_emojis + "&#128243;&nbsp"
+                 schedule_body = schedule_body + "&#128243; Vibrate "
+              }
+        
+              console.log(scheduled_job);
+        
+              calendarInstance.createSchedules([
+                 {
+                    id: event?.id,
+                    calendarId: '1',
+                    //Time of the event is added to the name if the event is not an all day event
+                    title: alert_emojis + event?.summary + (event?.start?.dateTime ?  moment(event?.start?.dateTime).format(" - hh:mm ") : ''),
+                    body:schedule_body,
+                    category: 'time',
+                    start: event?.start?.dateTime || event?.start?.date,
+                    end:event?.start?.dateTime || event?.start?.date,
+                    isAllDay:true,
+                    color:"white",
+                    bgColor:(checkBoxFlag ? "#808080" : "#135de6")
+                 },
+              ]);
+        
+           });
+        
+           //Can map these functions to onclick functions to change the month thats displayed
+           // calendarInstance.next(); //Next Month
+           // calendarInstance.prev(); //Previous Month
+        }
+        
+        //Opens the schedule modal
+        function scheduleModal(identifier) {
+           let event = identifier.split("^");
+           activeEvent=event[0];
+           $("#custom_alert_message_input").val(event[1]);
+           $("#schedule-modal").modal("show");
+        }
+        
+        async function scheduleAlert(id,alert_type,intensity,message,early){
+           await $.ajax({
+              url: "/api/v1/gcal/schedule/alert",
+              method: "post",
+              "data": {id, alert_type,intensity,message,early},
+              success: function (data) {
+                 console.log(data);
+                 window.location.reload();
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                 console.log("error"+errorThrown);
+              },
+           });
+        }
+        
+        async function scheduleEvent(){
+           let message =  $("#custom_alert_message_input").val();
+           let early = $("#alert_early_input").val();
+           let intensity = $("#alert_intensity").val();
+           let alert_type = $("#alert_type").val();
+           scheduleAlert(activeEvent, alert_type,intensity,message,early);
+           closeModal();
+        }
+        
+        //cleares the value of the forms once the modal is closed
+        function closeModal(){
+           $("#schedule-modal").modal("hide");
+           $("#custom_alert_message")[0].reset();
+           $("#alert_early")[0].reset();
+           activeEvent=undefined;
+        }
+     </script>
+
+    <script>
+        $('#notification-modal').on('hidden.bs.modal', function () {
+            window.location.href = "/";
+        });
+    </script>
+
+    <div class="keysmith__toast-container">
+        <img class="keysmith__toast-container__icon" src="chrome-extension://igfbafcgnaemgipnngnppdhilhpmmnoh/images/icon.png">
+        <div class="keysmith__toast-container__content">
+        <div class="keysmith__toast-container__header"></div>
+        <div class="keysmith__toast-container__detail"></div>
+        </div>
+    </div>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <div id="clickup-floating-chrome-extension-frame-box" class="clickup-floating-chrome-extension-frame-box-left mfb-component--br clickup-floating-chrome-extension-frame-box-1623355395188" style="bottom: 10px; left: 104px; display: block; z-index: 2147483636; transform: scale(1);"></div>
+
+</body>
+
+<loom-container id="lo-engage-ext-container">
+    <div></div>
+    <loom-shadow classname="resolved"></loom-shadow>
+ </loom-container>
+ <div id="motion-extension" class="motion-extension-div" style="visibility: hidden;">
+    <!-- <div class="motion-extension-div no-print"><iframe id="motion-intervention-iframe" class="motion-iframe ui-droppable" style="visibility: hidden;" src="./Google Calendar_files/saved_resource.html"></iframe><iframe class="motion-iframe ui-droppable" id="motion-generic-notification-iframe" src="./Google Calendar_files/saved_resource(1).html"></iframe></div> -->
+ </div>
+
+</html> 
