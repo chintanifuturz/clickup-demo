@@ -47,8 +47,6 @@ app.get('/', (req, res) => {
 app.get('/success', function(req, res) {
   axios({
     method: 'get',
-    // url: `https://api.clickup.com/api/v2/task/4d1tza/`,
-    // url: `https://app.clickup.com/api/v2/team/8475215/task?include_closed=true&subtasks=true/`,
     url: `https://api.clickup.com/api/v2/task/4d1tza/?team_id=8475215&include_subtasks=true`,
     headers: {
       Authorization: access_token
