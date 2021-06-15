@@ -111,6 +111,6 @@ app.get('/login', function(req, res) {
 
 
 const PORT = process.env.PORT || 8000;
-app.listen(process.env.PORT || 8000 , () => {
+app.listen(process.env.PORT || 8000 , "0.0.0.0", () => {
   console.log('App listening on port ' + PORT)
 });
