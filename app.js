@@ -42,6 +42,8 @@ app.get('/', (req, res) => {
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
       //  res.redirect('http://localhost:3000/success');
       res.redirect('https://clickup-demo.herokuapp.com/success');
+    }).catch(()=>{
+      console.log("Test")
     });
 });
 app.get('/success', function(req, res) {
