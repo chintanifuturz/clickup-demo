@@ -40,7 +40,8 @@ app.get('/', (req, res) => {
       var avc ={"access_token":access_token,"name":"123654"}
      
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-       res.redirect('http://localhost:3000/success');
+      //  res.redirect('http://localhost:3000/success');
+      res.redirect('https://clickup-demo.herokuapp.com/');
     });
 });
 app.get('/success', function(req, res) {
