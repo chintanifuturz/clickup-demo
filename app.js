@@ -100,7 +100,7 @@ app.get('/success', function(req, res) {
 
 
 app.get('/login', function(req, res) {
-
+  console.log("ADSFadsfa");
   res.render('pages/index',{client_id: clientID});
   pavlok.init(clientIDpavlok, clientSecretpavlok, { "port": 8080 }); // runs on port 8080
   pavlok.login(function (result, code) {
