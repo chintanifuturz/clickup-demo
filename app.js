@@ -110,7 +110,7 @@ app.get('/login', function(req, res) {
 });
 
 
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 app.listen(process.env.PORT || 8000 , () => {
-  console.log('App listening on port ' + this.address().port)
+  console.log('App listening on port ' + PORT)
 });
