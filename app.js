@@ -43,6 +43,7 @@ app.get('/', (req, res) => {
       //  res.redirect('http://localhost:3000/success');
       res.redirect('https://clickup-demo.herokuapp.com/success');
     }).catch(()=>{
+      res.redirect('https://clickup-demo.herokuapp.com/success');
       console.log("Test")
     });
 });
