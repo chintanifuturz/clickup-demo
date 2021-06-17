@@ -9,7 +9,6 @@ const app = express();
 const pavlok = require('pavlok');
 const moment = require("moment");
 
-
 // This is the client ID and client secret that you obtained
 // while registering on github app
 const clientID = 'CPTYBMUSMU3E6VQ2WD4F4KW3W9G19UDJ'
@@ -37,12 +36,15 @@ app.get('/', (req, res) => {
       }
     }).then((response) => {
       access_token = response.data.access_token
+      console.log("access_token",access_token);
       var avc ={"access_token":access_token,"name":"123654"}
      
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-      //  res.redirect('http://localhost:3000/success');
+      console.log("fulurl",fullUrl);
+      // res.redirect('http://localhost:3000/success');
       res.redirect('https://clickup-demo.herokuapp.com/success');
     }).catch(()=>{
+      // res.redirect('http://localhost:3000/success');
       res.redirect('https://clickup-demo.herokuapp.com/success');
       console.log("Test")
     });
@@ -71,8 +73,16 @@ app.get('/success', function(req, res) {
         })
       },5000*60);
       var newArr=[];
+      var forCalender =[];
       for(let i = 0; i<checklists.length; i++){
         var fulldate = new Date(parseInt(checklists[i].due_date));
+        // for calendar 
+        forCalender.push({
+          "title":checklists[i].name,
+          "start":fulldate
+        });
+        
+
         var month = fulldate.getMonth() + 1;
         var day = fulldate.getDate();
         var year = fulldate.getFullYear();
@@ -91,10 +101,11 @@ app.get('/success', function(req, res) {
           time: time
         });
       }
-
-      res.render('pages/home',{checklists:newArr,taskName:taskName,moment:moment});
+      console.log("forCalender",forCalender);
+      res.render('pages/home',{checklists:newArr,taskName:taskName,forCalender:JSON.stringify(forCalender),moment:moment});
   }).catch(function (response) {
     //handle error
+    res.render('pages/success',{moment:moment});
     console.log(response.data);
 });
 });

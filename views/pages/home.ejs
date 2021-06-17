@@ -3,6 +3,52 @@
 <head>
     <title>ClickUp</title>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <!-- <link rel="stylesheet" herf="/stylesheets/calendar.css"> -->
+    <link rel="stylesheet" herf="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var sss = '<%= forCalender %>';
+          sss = sss.replaceAll("&#34;",'"');
+          sss = sss.replaceAll("&#39;","'");
+          console.log("Test", sss);
+          var t = JSON.parse(JSON.stringify('<%= forCalender %>'))
+          console.log("ttt", t[0]);
+        //   $('#calendar'(' addEventSource',forCalener));
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            initialDate: new Date(), 
+            // events:forCalender
+            events: JSON.parse(sss)
+            // [
+            //     {
+            //         title  : 'Authenticate a user with Pavlok’s NPM module (Oauth2) and store the user’s access token',
+            //         start  : '2021-06-16T17:00:00.000Z'
+            //     },
+            //     {
+            //         title  : 'Fetch and display the user’s tasks for the user due today',
+            //         start  : '2021-06-22T02:00:00.000Z'
+            //     },
+            //     {
+            //         title  : "Create a simple model from Google Calendar that enables a 1-click 'schedule reminder'",
+            //         start  : '2021-06-16T02:45:00.000Z'
+            //     },
+            //     {
+            //         title: 'On a given task, the app sends a vibration 5 mins before the task is due',
+            //         start: '2021-06-15T12:30:00.000Z'
+            //     },
+            //     {
+            //         title: 'Deploy to Heroku OR to our server',
+            //         start: '2021-06-16T09:00:00.000Z'
+            //     }
+            // ]   
+          });
+          calendar.render();
+        });
+      </script>
+
     <script type="text/javascript">
         (function a() {
             const e = XMLHttpRequest.prototype,
@@ -854,6 +900,7 @@
     <link rel="stylesheet" href="/stylesheets/graph.css">
     <link href="/stylesheets/select2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/custom.css">
+    <link rel="stylesheet" herf="/stylesheets/calendar.css">
 
     <style>
         @keyframes spinner-border {
@@ -1553,44 +1600,49 @@
          <div class="main-panel">
             <div class="content mt-0">
                <div class="row m-4">
-                  <div class="col-md-9">
+                    <div class="col-md-9">
                      <!-- Bunner -->
-                     <div class="page-bunner">
-                        <div class="inner-page-bunner">
-                           <br><br>
-                           <h2 class="font-weight-bold mt-4">Google Calender Events</h2>
-                           <div id="list_view_wrapper">
-                              <br>
-                              <div class="spinner-border spin-gcal d-n"></div>
-                              <table class="oura-table gcal-table table table-bordered mt-2">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">Date</th>
-                                       <th scope="col">Event</th>
-                                       <th style="text-align: center" scope="col">Schedule</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody class="gcal-table-body">
-                                    <% checklists.forEach(function( eachPerson, index){ %>
-                                        <tr>
-                                            <td><%= eachPerson.date %> - <%= eachPerson.time %> </td>
-                                            <td><%= eachPerson.name %> </td>
-                                            <td style="text-align: center">
-                                                <button id="00t6ht7i4900ea0h48ntvs3fdl_20210610T194500Z^Pavlok Challenge Call" onclick="scheduleModal(this.id)" type="button" class="btn btn-primary" disabled="">
-                                                <i class="far fa-clock"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <% }) %>
-                                 </tbody>
-                              </table>
+                        <div class="page-bunner">
+                            <div class="inner-page-bunner">
+                                <br><br>
+                                <h2 class="font-weight-bold mt-4">Google Calender Events</h2>
+                                <div id="list_view_wrapper">
+                                    <br>
+                                    <div class="spinner-border spin-gcal d-n"></div>
+                                    <table class="oura-table gcal-table table table-bordered mt-2">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Event</th>
+                                            <th style="text-align: center" scope="col">Schedule</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="gcal-table-body">
+                                            <% checklists.forEach(function( eachPerson, index){ %>
+                                                <tr>
+                                                    <td><%= eachPerson.date %> - <%= eachPerson.time %> </td>
+                                                    <td><%= eachPerson.name %> </td>
+                                                    <td style="text-align: center">
+                                                        <button id="00t6ht7i4900ea0h48ntvs3fdl_20210610T194500Z^Pavlok Challenge Call" onclick="scheduleModal(this.id)" type="button" class="btn btn-primary" disabled="">
+                                                        <i class="far fa-clock"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <div class="col-md-9">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
             </div>
-         </div>
-    </div>
+        </div>
     <!-- End Custom template -->
       <!-- Expired Session Modal -->
       <div id="notification-modal" class="modal" tabindex="-1" role="dialog">
