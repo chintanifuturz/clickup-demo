@@ -21,7 +21,7 @@ var access_token = "";
 var pavlokCode = "";
 app.use(express.static('public'));
 // Declare the callback route
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
 
     // The req.query object has the query params that were sent to this route.
     const requestToken = req.query.code;
@@ -101,17 +101,16 @@ app.get('/success', function(req, res) {
           time: time
         });
       }
-      console.log("forCalender",forCalender);
       res.render('pages/home',{checklists:newArr,taskName:taskName,forCalender:JSON.stringify(forCalender),moment:moment});
   }).catch(function (response) {
     //handle error
     res.render('pages/success',{moment:moment});
-    console.log(response.data);
+    // console.log("response",response);
 });
 });
 
 
-app.get('/login', function(req, res) {
+app.get('/', function(req, res) {
   res.render('pages/index',{client_id: clientID});
   pavlok.init(clientIDpavlok, clientSecretpavlok, { "port": 8080 }); // runs on port 8080
   pavlok.login(function (result, code) {
