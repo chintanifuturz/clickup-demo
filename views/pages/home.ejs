@@ -21,7 +21,13 @@
             initialView: 'dayGridMonth',
             initialDate: new Date(), 
             // events:forCalender
-            events: JSON.parse(sss)
+            events: JSON.parse(sss),
+            eventClick: function(info) {
+                alert('Event: '+info.event.title);
+
+                // change the border color just for fun
+                info.el.style.borderColor = 'red';
+            }
           });
           calendar.render();
         });
@@ -1601,7 +1607,7 @@
                                                     <td><%= eachPerson.date %> - <%= eachPerson.time %> </td>
                                                     <td><%= eachPerson.name %> </td>
                                                     <td style="text-align: center">
-                                                        <button id="00t6ht7i4900ea0h48ntvs3fdl_20210610T194500Z^Pavlok Challenge Call" onclick="scheduleModal(this.id)" type="button" class="btn btn-primary" disabled="">
+                                                        <button id="00t6ht7i4900ea0h48ntvs3fdl_20210610T194500Z^Please Write a Message" onclick="scheduleModal('<%= eachPerson.id %>')" type="button" class="btn btn-primary">
                                                         <i class="far fa-clock"></i>
                                                         </button>
                                                     </td>
@@ -1636,6 +1642,59 @@
               </div>
               <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+     <!-- Event scheduling modal -->
+     <div id="schedule-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h2 class="modal-title">Schedule Alert</h2>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                       <label class="input-group-text" for="alert_type">Type of alert : </label>
+                    </div>
+                    <select class="custom-select" id="alert_type">
+                       <option value="vibrate">Vibrate</option>
+                       <option value="zap">Zap</option>
+                       <option value="beep">Beep</option>
+                    </select>
+                 </div>
+
+                 <!-- Intensity ranges from 0-255 for all types, map Low to 85, Medium to 170 and High to 255-->
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                       <label class="input-group-text" for="alert_intensity">Alert Intensity : </label>
+                    </div>
+                    <select class="custom-select" id="alert_intensity">
+                       <option value="high">High</option>
+                       <option value="medium">Medium</option>
+                       <option value="low">Low</option>
+                    </select>
+                 </div>
+
+                 <form action="https://sensorcore.pavlok.com/admin/google-calender.html" id="custom_alert_message" class="form-group">
+                    <p><label>Custom Message : </label>
+                       <input id="custom_alert_message_input" class="form-control" type="text" placeholder="Message" value="Google Calendar Event"></p>
+                 </form>
+
+                 <form action="https://sensorcore.pavlok.com/admin/google-calender.html" id="alert_early" class="form-group">
+                    <p><label>Pre-schedule alert before event : </label>
+                       <input id="alert_early_input" class="form-control" type="number" placeholder="Minutes" value="5"></p>
+                 </form>
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-danger" href="#" onclick="closeModal()">Cancel</button>
+                 <button type="button" class="btn btn-primary" href="#" onclick="scheduleEvent()">Schedule</button>
               </div>
            </div>
         </div>
@@ -1692,6 +1751,7 @@
 
 
     <script type="text/javascript">
+        
         // CUSTOM JAVASCRIPT FOR SENSORCORE
         let csvData = null;
         let graphStart = null;
@@ -1875,10 +1935,18 @@
         }
         
         async function scheduleAlert(id,alert_type,intensity,message,early){
+            console.log('<%= access_token %>', alert_type,intensity,message,early);
            await $.ajax({
-              url: "/api/v1/gcal/schedule/alert",
-              method: "post",
-              "data": {id, alert_type,intensity,message,early},
+              url: 'https://api.clickup.com/api/v2/task/'+id+'/',
+              type: 'PUT',
+              dataType: 'json',
+              headers: {
+                    Authorization: '<%= access_token %>',
+                    contentType: 'application/json',
+                },
+            //   "data": {id, alert_type,intensity,message,early},
+              data: {"description": "Updated Task Content","status": "in progress","priority": 1,},
+                
               success: function (data) {
                  console.log(data);
                  window.location.reload();
@@ -1894,6 +1962,7 @@
            let early = $("#alert_early_input").val();
            let intensity = $("#alert_intensity").val();
            let alert_type = $("#alert_type").val();
+           console.log(message,early,intensity,alert_type);
            scheduleAlert(activeEvent, alert_type,intensity,message,early);
            closeModal();
         }
@@ -1905,6 +1974,7 @@
            $("#alert_early")[0].reset();
            activeEvent=undefined;
         }
+     
      </script>
 
     <script>

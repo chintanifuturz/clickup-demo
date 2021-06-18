@@ -9,6 +9,8 @@ const app = express();
 const pavlok = require('pavlok');
 const moment = require("moment");
 
+
+
 // This is the client ID and client secret that you obtained
 // while registering on github app
 const clientID = 'CPTYBMUSMU3E6VQ2WD4F4KW3W9G19UDJ'
@@ -58,6 +60,7 @@ app.get('/success', function(req, res) {
     }
   }).then((response) => {
       var checklists = response.data.subtasks;
+      // console.log("checklists", response.data);
       const taskName = response.data.name;
       setInterval(() => {
         checklists.map((list)=> {
@@ -77,6 +80,7 @@ app.get('/success', function(req, res) {
       for(let i = 0; i<checklists.length; i++){
         var fulldate = new Date(parseInt(checklists[i].due_date));
         // for calendar 
+
         forCalender.push({
           "title":checklists[i].name,
           "start":fulldate
@@ -98,10 +102,11 @@ app.get('/success', function(req, res) {
         newArr.push({
           name: checklists[i].name,
           date: year+"/"+month+"/"+day,
-          time: time
+          time: time,
+          id: checklists[i].id
         });
       }
-      res.render('pages/home',{checklists:newArr,taskName:taskName,forCalender:JSON.stringify(forCalender),moment:moment});
+      res.render('pages/home',{checklists:newArr,taskName:taskName,forCalender:JSON.stringify(forCalender),access_token:access_token,moment:moment});
   }).catch(function (response) {
     //handle error
     res.render('pages/success',{moment:moment});
