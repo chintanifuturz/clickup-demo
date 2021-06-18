@@ -72,11 +72,11 @@ app.get('/login', (req, res) => {
      
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
       console.log("fulurl",fullUrl);
-      res.redirect('http://localhost:3000/success');
-      // res.redirect('https://clickup-demo.herokuapp.com/success');
+      // res.redirect('http://localhost:3000/success');
+      res.redirect('https://clickup-demo.herokuapp.com/success');
     }).catch(()=>{
-      res.redirect('http://localhost:3000/success');
-      // res.redirect('https://clickup-demo.herokuapp.com/success');
+      // res.redirect('http://localhost:3000/success');
+      res.redirect('https://clickup-demo.herokuapp.com/success');
       console.log("Test")
     });
 });
