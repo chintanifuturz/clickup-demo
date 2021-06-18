@@ -8,7 +8,7 @@ const express = require('express');
 const app = express();
 const pavlok = require('pavlok');
 const moment = require("moment");
-
+const cors = require('cors')
 
 
 // This is the client ID and client secret that you obtained
@@ -22,6 +22,35 @@ app.set('view engine', 'ejs');
 var access_token = "";
 var pavlokCode = "";
 app.use(express.static('public'));
+
+app.use(function (req, res, next) {
+
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With,content-type,Accept');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Pass to next layer of middleware
+  next();
+});
+
+// var corsOptions = {
+//   origin: 'https://api.clickup.com/',
+//   credentials: true,
+//   preflightContinue: true,
+//   methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+// }
+// app.use(cors(corsOptions));
+
 // Declare the callback route
 app.get('/login', (req, res) => {
 
@@ -34,8 +63,8 @@ app.get('/login', (req, res) => {
 
       // Set the content type header, so that we get the response in JSON
       headers: {
-           accept: 'application/json',
-      }
+        accept: 'application/json',
+      },
     }).then((response) => {
       access_token = response.data.access_token
       console.log("access_token",access_token);
@@ -43,11 +72,11 @@ app.get('/login', (req, res) => {
      
       var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
       console.log("fulurl",fullUrl);
-      // res.redirect('http://localhost:3000/success');
-      res.redirect('https://clickup-demo.herokuapp.com/success');
+      res.redirect('http://localhost:3000/success');
+      // res.redirect('https://clickup-demo.herokuapp.com/success');
     }).catch(()=>{
-      // res.redirect('http://localhost:3000/success');
-      res.redirect('https://clickup-demo.herokuapp.com/success');
+      res.redirect('http://localhost:3000/success');
+      // res.redirect('https://clickup-demo.herokuapp.com/success');
       console.log("Test")
     });
 });

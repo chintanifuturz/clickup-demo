@@ -1665,8 +1665,8 @@
                     </div>
                     <select class="custom-select" id="alert_type">
                        <option value="vibrate">Vibrate</option>
-                       <option value="zap">Zap</option>
-                       <option value="beep">Beep</option>
+                       <!-- <option value="zap">Zap</option>
+                       <option value="beep">Beep</option> -->
                     </select>
                  </div>
 
@@ -1677,8 +1677,8 @@
                     </div>
                     <select class="custom-select" id="alert_intensity">
                        <option value="high">High</option>
-                       <option value="medium">Medium</option>
-                       <option value="low">Low</option>
+                       <!-- <option value="medium">Medium</option>
+                       <option value="low">Low</option> -->
                     </select>
                  </div>
 
@@ -1689,7 +1689,7 @@
 
                  <form action="https://sensorcore.pavlok.com/admin/google-calender.html" id="alert_early" class="form-group">
                     <p><label>Pre-schedule alert before event : </label>
-                       <input id="alert_early_input" class="form-control" type="number" placeholder="Minutes" value="5"></p>
+                       <input id="alert_early_input" readonly class="form-control" type="number" placeholder="Minutes" value="5"></p>
                  </form>
               </div>
               <div class="modal-footer">
@@ -1935,6 +1935,23 @@
         }
         
         async function scheduleAlert(id,alert_type,intensity,message,early){
+
+            // $.axios({
+            //     method: 'PUT',
+            //     url:`https://api.clickup.com/api/v2/task/'+id+'/`,
+            //     headers: {
+            //         Authorization: '<%= access_token %>'
+            //     },
+            //     data: {"description": message,"priority": early,},
+            // }).then((response) => {
+            //     console.log("then",response);
+            //      window.location.reload();
+            // }).catch(function (response) {
+            //     console.log("catch",response);
+            //      window.location.reload();
+            //     // console.log("response",response);
+            // });
+
             console.log('<%= access_token %>', alert_type,intensity,message,early);
            await $.ajax({
               url: 'https://api.clickup.com/api/v2/task/'+id+'/',
@@ -1945,7 +1962,7 @@
                     contentType: 'application/json',
                 },
             //   "data": {id, alert_type,intensity,message,early},
-              data: {"description": "Updated Task Content","status": "in progress","priority": 1,},
+              data: {"description": message,"priority":1},
                 
               success: function (data) {
                  console.log(data);
